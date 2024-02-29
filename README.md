@@ -19,8 +19,8 @@ dicho terreno.
 - [@Salome Quispe](https://github.com/Salo-Quispe)
 - [@Jose Galarza](https://github.com/jp123468)
 - [@Dany Vinueza](https://github.com/DannyVinueza)
-- [@Daniel Quishpe](https://github.com/ItsgabrielJT)
-- [@Nestor Chumania](https://github.com/ItsgabrielJT)
+- [@Daniel Quishpe](https://github.com/DAQG)
+- [@Nestor Chumania](https://github.com/RotsenCH)
 
 
 ## Stack Tecnico 🧩👥
