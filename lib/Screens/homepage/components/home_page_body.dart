@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluuter_project/Screens/account/akunPage.dart';
 import 'package:fluuter_project/Screens/login/login.dart';
+import 'package:fluuter_project/Screens/maps/maps.dart';
 
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({Key? key}) : super(key: key);
@@ -96,7 +97,6 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           mainAxisAlignment:
               MainAxisAlignment.spaceBetween, // memberi spasi antar widget
           children: [
-           
             SizedBox(
               width: 100,
             ),
@@ -104,15 +104,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           ],
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            
-          ],
-        ),
-      ),
+      body: MapScreen(),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
