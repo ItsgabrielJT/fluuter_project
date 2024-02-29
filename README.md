@@ -16,7 +16,7 @@ dicho terreno.
 ## Autores 🪬
 
 - [@Joel Tates](https://github.com/ItsgabrielJT)
-- [@Salome Quispe](https://github.com/Salo-Quispe)
+- [@Salomé Quispe](https://github.com/Salo-Quispe)
 - [@Jose Galarza](https://github.com/jp123468)
 - [@Dany Vinueza](https://github.com/DannyVinueza)
 - [@Daniel Quishpe](https://github.com/DAQG)
