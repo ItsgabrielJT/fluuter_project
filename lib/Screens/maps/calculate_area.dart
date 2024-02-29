@@ -71,7 +71,7 @@ class MapSampleState extends State<CalculateAreaScreen> {
     );
 
     if (await addCalculation(calculation)) {
-      Get.snackbar("Success", "Arear registrada con exito");
+      Get.snackbar("Success", "Area registrada con exito");
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
         context,
@@ -130,6 +130,8 @@ class MapSampleState extends State<CalculateAreaScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
+              hoverColor: Color.fromRGBO(105, 240, 174, 1),
+
           onPressed: () {
             Navigator.pushReplacement(
               context,

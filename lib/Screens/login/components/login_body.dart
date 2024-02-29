@@ -120,7 +120,7 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Iniciar sesion",
+                              "Iniciar sesión",
                               style: GoogleFonts.poppins(
                                 fontSize: 40,
                                 fontWeight: FontWeight.bold,

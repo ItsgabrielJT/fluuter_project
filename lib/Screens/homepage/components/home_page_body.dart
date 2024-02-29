@@ -35,7 +35,8 @@ class _UserProfileDrawerHeaderState extends State<UserProfileDrawerHeader> {
           return const UserAccountsDrawerHeader(
             accountName: Text('Loading...'),
             accountEmail: Text('Loading...'),
-            currentAccountPicture: CircleAvatar(backgroundColor: Color.fromARGB(255, 195, 248, 184)),
+            currentAccountPicture: CircleAvatar(
+                backgroundColor: Color.fromARGB(255, 195, 248, 184)),
           );
         }
 
@@ -59,7 +60,11 @@ class _UserProfileDrawerHeaderState extends State<UserProfileDrawerHeader> {
             accountEmail: Text(userType),
             currentAccountPicture: imageUrl != null
                 ? CircleAvatar(backgroundImage: NetworkImage(imageUrl))
-                : const CircleAvatar(backgroundColor: Color.fromARGB(255, 195, 248, 184)),
+                : const CircleAvatar(
+                    backgroundColor: Color.fromARGB(255, 195, 248, 184)),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(26, 228, 130, 1), // Cambia este color al que desees
+            ),
           );
         }
 
@@ -81,7 +86,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromRGBO(105, 240, 174, 1),
         elevation: 0.0,
         flexibleSpace: Container(
           width: 200,
@@ -90,8 +95,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(12),
                 bottomRight: Radius.circular(12)),
-            gradient:
-                LinearGradient(colors: [Colors.green, Colors.greenAccent]),
+            gradient: LinearGradient(colors: [Colors.green]),
           ),
         ),
         title: Row(
@@ -101,7 +105,6 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             SizedBox(
               width: 100,
             ),
-            
           ],
         ),
       ),
@@ -115,6 +118,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             // Menu Map
             ListTile(
               leading: const Icon(Icons.location_on),
+              hoverColor: Color.fromRGBO(105, 240, 174, 1),
               title: const Text('Mapa'),
               onTap: () {
                 Navigator.pushReplacement(
@@ -127,10 +131,13 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ListTile(
               leading: const Icon(Icons.polyline),
               title: const Text('Areas'),
+              hoverColor: Color.fromRGBO(105, 240, 174, 1),
+
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => CalculateAreaScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => CalculateAreaScreen()),
                 );
               },
             ),
@@ -139,6 +146,8 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ListTile(
               leading: const Icon(Icons.person),
               title: const Text('Perfil'),
+              hoverColor: Color.fromRGBO(105, 240, 174, 1),
+
               onTap: () {
                 Navigator.push(
                   context,
@@ -151,6 +160,8 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Cerrar sesion'),
+              hoverColor: Color.fromRGBO(105, 240, 174, 1),
+
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
                 // ignore: use_build_context_synchronously
