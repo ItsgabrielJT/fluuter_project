@@ -106,7 +106,7 @@ class _SignUpThreeState extends State<SignUpThree> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (signUpController.userType == "Student") ...[
+                  if (signUpController.userType == "Topografo") ...[
                     Text(
                       "Año de registro",
                       style: GoogleFonts.poppins(
@@ -128,42 +128,6 @@ class _SignUpThreeState extends State<SignUpThree> {
                       cursorColor: HexColor("#4f4f4f"),
                       decoration: InputDecoration(
                         hintText: "2024",
-                        fillColor: HexColor("#f0f3f1"),
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(20, 20, 20, 20),
-                        hintStyle: GoogleFonts.poppins(
-                          fontSize: 15,
-                          color: HexColor("#8d8d8d"),
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                      ),
-                    ),
-                  ] else if (signUpController.userType == "Alumni") ...[
-                    Text(
-                      "Passout Year",
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        color: HexColor("#8d8d8d"),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    TextField(
-                      onChanged: (value) {
-                        signUpController.setPassOutYear(value);
-                      },
-                      onSubmitted: (value) {
-                        signUpController.setPassOutYear(value);
-                      },
-                      keyboardType: TextInputType.number,
-                      cursorColor: HexColor("#4f4f4f"),
-                      decoration: InputDecoration(
-                        hintText: "2020",
                         fillColor: HexColor("#f0f3f1"),
                         contentPadding:
                             const EdgeInsets.fromLTRB(20, 20, 20, 20),

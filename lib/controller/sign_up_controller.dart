@@ -24,7 +24,7 @@ class SignUpController extends GetxController {
     update();
   }
 
-  String? _userType = "Student";
+  String? _userType = "Topografo";
   String? get userType => _userType;
   void setUserType(String? text) {
     _userType = text;
@@ -107,7 +107,6 @@ class SignUpController extends GetxController {
       'email': email,
       'password': password,
       'mobileNumber': mobileNumber,
-      'collegeName': collegeName,
       'imageUrl': imageUrl,
     });
 

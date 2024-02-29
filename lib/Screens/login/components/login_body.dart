@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -22,17 +24,19 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
 
   Future<void> signUserIn() async {
     try {
-      final UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-      if (userCredential.user != null) {
-        // ignore: use_build_context_synchronously
-        Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
-                );
+      if (validateEmail(emailController.text) && validatePassword(passwordController.text) ){
+        final UserCredential userCredential =
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        if (userCredential.user != null) {
+          // ignore: use_build_context_synchronously
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
+          );
+        }
       } 
     } catch (e) {
       showErrorMessage(e.toString());
@@ -51,20 +55,37 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
 
   String _errorMessage = "";
 
-  void validateEmail(String val) {
+  bool validateEmail(String val) {
     if (val.isEmpty) {
       setState(() {
-        _errorMessage = "Email tidak boleh kosong";
+        _errorMessage = "Email es requerido";
       });
+      return false;
     } else if (!EmailValidator.validate(val, true)) {
       setState(() {
-        _errorMessage = "Alamat Email tidak valid";
+        _errorMessage = "El email es invalido";
       });
-    } else {
+      return false;
+    } 
       setState(() {
         _errorMessage = "";
       });
-    }
+    return true;
+  }
+
+  String _errorMessagePassword = "";
+
+  bool validatePassword(String val) {
+    if (val.isEmpty) {
+      setState(() {
+        _errorMessagePassword = "Password es requerido";
+      });
+      return false;
+    } 
+      setState(() {
+        _errorMessagePassword = "";
+      });
+    return true;
   }
 
   @override
@@ -72,7 +93,7 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Color.fromRGBO(216, 239,229, 100),
+        backgroundColor: Color.fromRGBO(216, 239, 229, 100),
         body: ListView(
           padding: const EdgeInsets.fromLTRB(0, 400, 0, 0),
           shrinkWrap: true,
@@ -125,9 +146,7 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
                                     height: 10,
                                   ),
                                   MyTextField(
-                                    onChanged: (() {
-                                      validateEmail(emailController.text);
-                                    }),
+                                    
                                     controller: emailController,
                                     hintText: "@example.com",
                                     obscureText: false,
@@ -163,8 +182,19 @@ class _LoginBodyScreenState extends State<LoginBodyScreen> {
                                     obscureText: true,
                                     prefixIcon: const Icon(Icons.lock_outline),
                                   ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                    child: Text(
+                                      _errorMessagePassword,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  ),
                                   const SizedBox(
-                                    height: 20,
+                                    height: 15,
                                   ),
                                   MyButton(
                                     onPressed: signUserIn,

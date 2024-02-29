@@ -21,7 +21,7 @@ class _AkunPageState extends State<AkunPage> {
     _loadUserProfile();
   }
 
-  // Metode untuk mengambil dan memuat data profil pengguna dari Firestore
+  // Carga la finormacion desde el firestore al widget
   Future<void> _loadUserProfile() async {
     var docSnapshot = await firestore.collection("user").doc(user.uid).get();
     if (docSnapshot.exists) {
@@ -36,7 +36,7 @@ class _AkunPageState extends State<AkunPage> {
     }
   }
 
-  // Metode untuk menampilkan dialog pengeditan dan menyimpan perubahan data profil
+  // Muestra el modal de edicion de un campo
   void _showEditDialog(String field) {
     showDialog(
       context: context,
@@ -44,7 +44,7 @@ class _AkunPageState extends State<AkunPage> {
         String? value = '';
 
         return AlertDialog(
-          title: Text('Edit $field'),
+          title: Text('Editar $field'),
           content: TextField(
             onChanged: (newValue) {
               value = newValue;
@@ -55,13 +55,13 @@ class _AkunPageState extends State<AkunPage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Cancel'),
+              child: Text('Cancelar'),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
             TextButton(
-              child: Text('Save'),
+              child: Text('Guardar'),
               onPressed: () async {
                 if (value != null && value!.isNotEmpty) {
                   try {
@@ -108,21 +108,19 @@ class _AkunPageState extends State<AkunPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Menampilkan tombol kembali dan judul halaman
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => HomeScreenBody()),
+              MaterialPageRoute(builder: (context) => const HomeScreenBody()),
             );
           },
         ),
-        title: Text('Configuracion de perfil'),
+        title: const Text('Configuracion de perfil'),
        
       ),
       body: StreamBuilder(
-        // StreamBuilder untuk mendapatkan data profil pengguna dari Firestore
         stream: FirebaseFirestore.instance
             .collection('user')
             .where('uid', isEqualTo: auth.currentUser!.uid)
@@ -138,38 +136,36 @@ class _AkunPageState extends State<AkunPage> {
 
             return ListView(
               children: <Widget>[
-                // Item daftar untuk setiap bidang profil pengguna
                 ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text('Nombres'),
+                  leading: const Icon(Icons.account_circle),
+                  title: const Text('Nombres'),
                   subtitle: Text(username ?? 'Loading...'),
                   onTap: () => _showEditDialog(
-                      'name'), // Menampilkan dialog pengeditan saat item diklik
+                      'nombres'), // Menampilkan dialog pengeditan saat item diklik
                 ),
                 ListTile(
-                  leading: Icon(Icons.email),
-                  title: Text('Correo'),
+                  leading: const Icon(Icons.email),
+                  title: const Text('Correo'),
                   subtitle: Text(email ?? 'Loading...'),
-                  onTap: () => _showEditDialog('email'),
+                  onTap: () => _showEditDialog('correo'),
                 ),
                 ListTile(
-                  leading: Icon(Icons.phone),
-                  title: Text('Numero celular'),
+                  leading: const Icon(Icons.phone),
+                  title: const Text('Numero celular'),
                   subtitle: Text(mobileNumber ?? 'Loading...'),
-                  onTap: () => _showEditDialog('mobileNumber'),
+                  onTap: () => _showEditDialog('celular'),
                 ),
                 ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text('Tipo de usuario'),
+                  leading: const Icon(Icons.person),
+                  title: const Text('Tipo de usuario'),
                   subtitle: Text(userType ?? 'Loading...'),
-                  onTap: () => _showEditDialog('userType'),
                 ),
               ],
             );
           } else if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
       ),
