@@ -86,17 +86,12 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(105, 240, 174, 1),
+        backgroundColor: Color.fromARGB(255, 245, 245, 245),
         elevation: 0.0,
         flexibleSpace: Container(
           width: 200,
           height: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(12),
-                bottomRight: Radius.circular(12)),
-            gradient: LinearGradient(colors: [Colors.green]),
-          ),
+          
         ),
         title: Row(
           mainAxisAlignment:
