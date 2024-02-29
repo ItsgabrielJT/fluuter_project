@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 
 import 'package:fluuter_project/services/firebase_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -38,6 +39,7 @@ class MapSampleState extends State<MapScreen> {
     setState(() {
       userList = users; // Asignar la lista de usuarios
       _addMarkers(); // Agregar marcadores al mapa cuando se carguen los usuarios
+
     });
   }
 
@@ -52,7 +54,8 @@ class MapSampleState extends State<MapScreen> {
         position: LatLng(user['latitud'], user['longitud']),
         infoWindow: InfoWindow(title: user['name']),
       );
-      print(marker);
+      
+      //print(marker);
       setState(() {
         _markers.add(marker);
         if (_firstMarker == null) {
@@ -89,6 +92,7 @@ class MapSampleState extends State<MapScreen> {
               ),
         onMapCreated: _onMapCreated,
         markers: _markers, // Usar el conjunto de marcadores actual
+        
       ),
     );
   }

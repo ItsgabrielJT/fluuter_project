@@ -108,6 +108,8 @@ class SignUpController extends GetxController {
       'password': password,
       'mobileNumber': mobileNumber,
       'imageUrl': imageUrl,
+      "isActive": true
+
     });
 
     uploadResumeFile();

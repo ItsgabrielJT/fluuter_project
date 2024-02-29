@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluuter_project/Screens/account/akunPage.dart';
 import 'package:fluuter_project/Screens/login/login.dart';
+import 'package:fluuter_project/Screens/maps/calculate_area.dart';
 import 'package:fluuter_project/Screens/maps/maps.dart';
 
 class HomeScreenBody extends StatefulWidget {
@@ -119,6 +120,17 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => HomeScreenBody()),
+                );
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.polyline),
+              title: const Text('Areas'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => CalculateAreaScreen()),
                 );
               },
             ),

@@ -11,7 +11,6 @@ import 'package:fluuter_project/controller/sign_up_controller.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:fluuter_project/models/file_model.dart';
 
-import '../../homepage/home_page.dart';
 
 class SignUpThree extends StatefulWidget {
   const SignUpThree({super.key});
