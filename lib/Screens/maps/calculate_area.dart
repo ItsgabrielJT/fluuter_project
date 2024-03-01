@@ -183,6 +183,7 @@ class MapSampleState extends State<CalculateAreaScreen> {
       _polygone = HashSet<Polygon>();
       points = [];
       _firstMarker = null;
+      coordeantes = [];
     });
   }
 
