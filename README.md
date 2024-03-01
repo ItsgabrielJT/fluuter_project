@@ -107,7 +107,7 @@ Con todo esto tendremos terminado la configuracion para la geolocalizacion con g
 ## Videos Explicativos 📁
 
 A continuación proporcionamos un link para poder visualizar 
-- [Link apk](https://epnecuador-my.sharepoint.com/:f:/g/personal/nestor_chumania_epn_edu_ec/EmG-2gYtNhdFn8CLep4M-FsB_WBHeIlSQsgssAey7XlVqA?e=GkTn3Z)
+- [Link videos](https://epnecuador-my.sharepoint.com/:f:/g/personal/nestor_chumania_epn_edu_ec/EmG-2gYtNhdFn8CLep4M-FsB_WBHeIlSQsgssAey7XlVqA?e=GkTn3Z)
 
 #### Configuracion de permisos de ubicacion y ejecucion en segundo plano
 
