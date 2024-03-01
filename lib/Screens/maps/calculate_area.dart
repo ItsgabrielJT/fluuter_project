@@ -228,7 +228,7 @@ class MapSampleState extends State<CalculateAreaScreen> {
                 zoom: 15,
               ),
         onMapCreated: _onMapCreated,
-        onTap: (_ontap) => _addMarkerOnCameraCenter(_ontap),
+        //onTap: (_ontap) => _addMarkerOnCameraCenter(_ontap),
         markers: _markers, // Usar el conjunto de marcadores actual
         polygons: _polygone,
       ),
