@@ -104,6 +104,11 @@ tambien tenemos que cambiar el minSdk eso lo hacemos en el archivo ubicado en la
 
 Con todo esto tendremos terminado la configuracion para la geolocalizacion con google map 🏅
 
+## Videos Explicativos 📁
+
+A continuación proporcionamos un link para poder visualizar 
+- [Link apk](https://epnecuador-my.sharepoint.com/:f:/g/personal/nestor_chumania_epn_edu_ec/EmG-2gYtNhdFn8CLep4M-FsB_WBHeIlSQsgssAey7XlVqA?e=GkTn3Z)
+
 #### Configuracion de permisos de ubicacion y ejecucion en segundo plano
 
 Como ya sabemos si nosotros no especificamos los permisos desde el **android/app/src/main/AndroidManifest.xml** aunque nuestro codigo este compilandose bien no funcionara para ello tenemos que agregar los permisos siguientes
