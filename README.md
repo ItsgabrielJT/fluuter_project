@@ -128,7 +128,7 @@ Como ya sabemos si nosotros no especificamos los permisos desde el **android/app
 
 - El sistema web **administrador**.
 
-- [Link deploy](https://project-core-front.vercel.app)
+- [Link deploy](https://geolocation-flutter-app.web.app/)
 
 ## Licencia
 
