@@ -25,6 +25,8 @@ dicho terreno.
 
 ## Stack Tecnico 🧩👥
 
+**Sistema Web** codigo del portal del [administrador web](https://github.com/DannyVinueza/Web_Flutter_Pagina)
+
 **Librerias:** Flutter, Google Maps Plataform.
 
 **Firebase:** Authentication, Cloud Firestore, Storage.
