@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.2.5 <4.0.0'
 
 dependencies:
+  maps_toolkit: ^3.0.0
   cloud_firestore: ^4.3.1
   cupertino_icons: ^1.0.2
   email_validator: ^2.1.17

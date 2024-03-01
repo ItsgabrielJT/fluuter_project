@@ -12,7 +12,7 @@ class _AkunPageState extends State<AkunPage> {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   late User user;
-  String? username, email, mobileNumber, userType, collegeName;
+  String? username, email, mobileNumber, userType, isActive;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _AkunPageState extends State<AkunPage> {
         email = userData["email"];
         mobileNumber = userData["mobileNumber"];
         userType = userData["userType"];
-        collegeName = userData["collegeName"];
+        isActive = userData["isActive"];
       });
     }
   }
@@ -55,13 +55,13 @@ class _AkunPageState extends State<AkunPage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Cancelar'),
+              child: const Text('Cancelar'),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
             TextButton(
-              child: Text('Guardar'),
+              child: const Text('Guardar'),
               onPressed: () async {
                 if (value != null && value!.isNotEmpty) {
                   try {
@@ -69,29 +69,10 @@ class _AkunPageState extends State<AkunPage> {
                         .collection('user')
                         .doc(user.uid)
                         .update({field: value});
-                    setState(() {
-                      // Memperbarui nilai bidang yang sesuai di state
-                      switch (field) {
-                        case 'name':
-                          username = value;
-                          break;
-                        case 'email':
-                          email = value;
-                          break;
-                        case 'mobileNumber':
-                          mobileNumber = value;
-                          break;
-                        case 'collegeName':
-                          collegeName = value;
-                          break;
-                        case 'userType':
-                          userType = value;
-                          break;
-                        default:
-                          break;
-                      }
-                    });
+                    
+                    // ignore: use_build_context_synchronously
                     Navigator.pop(context);
+                    _loadUserProfile();
                   } catch (e) {
                     print('Error updating user data: $e');
                   }
@@ -133,6 +114,7 @@ class _AkunPageState extends State<AkunPage> {
             var email = data['email'];
             var mobileNumber = data['mobileNumber'];
             var userType = data['userType'];
+            var isActive = data['isActive'];
 
             return ListView(
               children: <Widget>[
@@ -141,24 +123,29 @@ class _AkunPageState extends State<AkunPage> {
                   title: const Text('Nombres'),
                   subtitle: Text(username ?? 'Loading...'),
                   onTap: () => _showEditDialog(
-                      'nombres'), // Menampilkan dialog pengeditan saat item diklik
+                      'name'),
                 ),
                 ListTile(
                   leading: const Icon(Icons.email),
                   title: const Text('Correo'),
                   subtitle: Text(email ?? 'Loading...'),
-                  onTap: () => _showEditDialog('correo'),
+                  onTap: () => _showEditDialog('email'),
                 ),
                 ListTile(
                   leading: const Icon(Icons.phone),
                   title: const Text('Numero celular'),
                   subtitle: Text(mobileNumber ?? 'Loading...'),
-                  onTap: () => _showEditDialog('celular'),
+                  onTap: () => _showEditDialog('mobileNumber'),
                 ),
                 ListTile(
                   leading: const Icon(Icons.person),
                   title: const Text('Tipo de usuario'),
                   subtitle: Text(userType ?? 'Loading...'),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.playlist_add_check),
+                  title: const Text('Estado'),
+                  subtitle: Text(isActive == null ? "Loading..." : isActive ? "Activo" : "Inactivo"),
                 ),
               ],
             );

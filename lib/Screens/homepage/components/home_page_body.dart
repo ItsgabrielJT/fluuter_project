@@ -103,7 +103,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           ],
         ),
       ),
-      body: MapScreen(),
+      body: CalculateAreaScreen(),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -123,19 +123,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               },
             ),
 
-            ListTile(
-              leading: const Icon(Icons.polyline),
-              title: const Text('Areas'),
-              hoverColor: Color.fromRGBO(105, 240, 174, 1),
-
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => CalculateAreaScreen()),
-                );
-              },
-            ),
+            
 
             // Menu Profile
             ListTile(

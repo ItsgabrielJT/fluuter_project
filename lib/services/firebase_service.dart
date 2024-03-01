@@ -16,6 +16,7 @@ Future<List<Map<String, dynamic>>> getUsers() async {
       'name': element['name'],
       'latitud': element['latitud'],
       'longitud': element['longitud'],
+      'isActive': element['isActive'],
     });
   });
   return users;
